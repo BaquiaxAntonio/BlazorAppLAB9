@@ -1,0 +1,31 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Incripcion Alumnos!</h1>
+
+Welcome to your new app.
+
+@if (alumnos == null)
+{
+    <p><em></em </p>>
+}
+<select class="from-select"aria-label="Default select example">
+    <option selected>selecciones al alumnos</option>
+        foreach (var alumno in alumnos)
+        {
+            <option value="@Alumno.Dpi">@alumnos.Nombre</option>
+        }
+ </select>
+
+@code {
+    List<Alumno> alumnos;
+    List<Taller> talleres;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        alumnos = await Http.GetFromJsonAsync<List<Alumno>>("sample-data/Alumnos.json");
+        talleres = await Http.GetFromJsonAsync<List<Taller>>("sample-data/Talleres.json");
+    }
+  }

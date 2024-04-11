@@ -1,0 +1,19 @@
+[
+  {
+    "Codigo": "t1",
+    "nombre": "Programacion",
+    "Precio": 100
+  },
+
+  {
+    "Codigo": "t3",
+    "nombre": "Musica",
+    "Precio": 120
+  },
+
+  {
+    "Codigo": "t3",
+    "nombre": "Pintura",
+    "Precio": 110
+  }
+]
