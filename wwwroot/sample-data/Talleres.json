@@ -1,19 +1,19 @@
 [
   {
     "Codigo": "t1",
-    "nombre": "Programacion",
+    "NombreTaller": "Programacion",
     "Precio": 100
   },
 
   {
     "Codigo": "t3",
-    "nombre": "Musica",
+    "NombreTaller": "Musica",
     "Precio": 120
   },
 
   {
     "Codigo": "t3",
-    "nombre": "Pintura",
+    "NombreTaller": "Pintura",
     "Precio": 110
   }
 ]
