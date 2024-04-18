@@ -1,19 +1,17 @@
 [
   {
-    "Dpi": "123432",
+    "Dpi": "123",
     "Nombre": "Jose",
-    "Direccion": "Totonicapán"
-  },
-
-  {
-    "Dpi": "5345345",
-    "Nombre": "Juan",
-    "Direccion": "Zunil"
+    "Direccion": "direccion 1"
   },
   {
-    "Dpi": "656762",
-    "Nombre": "Jose",
-    "Direccion": "Quetzaltenago"
+    "Dpi": "456",
+    "Nombre": "Guillermo",
+    "Direccion": "direccion 2"
+  },
+  {
+    "Dpi": "789",
+    "Nombre": "Ramirez",
+    "Direccion": "direccion 3"
   }
-
 ]

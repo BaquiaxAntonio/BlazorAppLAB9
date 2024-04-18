@@ -2,9 +2,9 @@
 {
     public class Inscripcion
     {
-        public string codigo {  get; set; }
+        public string Codigo { get; set; }
         public string Dpi { get; set; }
-        public DateTime Fecha{ get; set; }
+        public DateTime Fecha { get; set; }
 
     }
 }

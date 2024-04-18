@@ -31,7 +31,7 @@
             <option selected>Seleccion Taller</option>
             @foreach (var taller in talleres)
             {
-                <option value="@taller.Codigo">@taller.NombreTaller</option>
+                <option value="@taller.Codigo">@taller.Nombre</option>
             }
         </select>
 
@@ -41,28 +41,67 @@
     <button class="btn btn-primary" @onclick="GuardarInscripcion">Inscribir Alumno</button>
 </div>
 
+@if (inscripciones == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inscripcion in inscripciones)
+            {
+                <tr>
+                    <td>@inscripcion.Codigo</td>
+                    <td>@inscripcion.Dpi</td>
+                    <td>@inscripcion.Fecha.ToShortDateString</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
+
     List<Alumno> alumnos;
     List<Taller> talleres;
     List<Inscripcion> inscripciones = new List<Inscripcion>();
+
     string codigoTaller;
     string dpiAlumno;
 
 
     protected override async Task OnInitializedAsync()
     {
-        alumnos = await Http.GetFromJsonAsync<List<Alumno>>("sample-data/Alumnos.json");
+        alumnos = await Http.GetFromJsonAsync<List<Alumno>>("sample-data/alumnos.json");
 
-        talleres = await Http.GetFromJsonAsync<List<Taller>>("sample-data/Talleres.json");
+        talleres = await Http.GetFromJsonAsync<List<Taller>>("sample-data/talleres.json");
+
+        //inscripciones = await localStorage.GetItemAsync<List<Inscripcion>>("inscripciones");
+
+
     }
 
-    protected async Task GuardarInscripcion(){
+    protected async Task GuardarInscripcion()
+    {
         Inscripcion inscripcion = new Inscripcion();
-        inscripcion.codigo=codigoTaller;
-        inscripcion.Dpi=dpiAlumno;
-        inscripcion.Fecha=DateTime.Now;
+
+        inscripcion.Codigo = codigoTaller;
+        inscripcion.Dpi = dpiAlumno;
+        inscripcion.Fecha = DateTime.Now;
+
         inscripciones.Add(inscripcion);
-        await localStorage.SetItemAsync("inscripciones", "incripciones");
+
+        await localStorage.SetItemAsync("inscripciones", "inscripciones");
+
+
     }
-  }
+}
